@@ -1,0 +1,20 @@
+First install the library
+pip install python-barcode
+
+Create a barcode maker program in python language.
+import barcode  
+from barcode.writer import ImageWriter  
+
+# Function to create a barcode  
+def create_barcode(data, filename):  
+    # Use the 'code128' barcode format  
+    code = barcode.get('code128', data, writer=ImageWriter())  
+    # Save the barcode as an image file  
+    code.save(filename)  
+
+# Main code to run the barcode generator  
+if __name__ == "__main__":  
+    data = input("Enter the data for the barcode: ")  
+    filename = input("Enter the filename to save the barcode (without extension): ")  
+    create_barcode(data, filename)  
+    print(f"Barcode saved as {filename}.png")
